@@ -71,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadCurrentImage() {
-        const imageNumber = imageNumbers[currentImageIndex];
-        noteImage.src = imageNumber;
+        const imageName = imageNumbers[currentImageIndex];
+        noteImage.src = imageName;
         selectedNotes = [];
         noteButtons.forEach(button => button.classList.remove('selected'));
     }
@@ -83,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkAnswer() {
-        const imageNumber = imageNumbers[currentImageIndex];
-        const correctNotes = noteMappings[imageNumber];
+        const imageName = imageNumbers[currentImageIndex];
+        const correctNotes = noteMappings[imageName];
 
         const isCorrect = selectedNotes.length === 4 &&
                           selectedNotes.every((note, index) => note === correctNotes[index]);
