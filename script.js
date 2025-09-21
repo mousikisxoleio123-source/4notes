@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '35.png': ['Ντο', 'Φα', 'Σι', 'Μι']
     };
     
-    let imageNumbers = Object.keys(noteMappings);
+    let imageNames = Object.keys(noteMappings);
     let currentImageIndex = 0;
     let selectedNotes = [];
 
@@ -65,13 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startGame() {
-        shuffleArray(imageNumbers);
+        shuffleArray(imageNames);
         currentImageIndex = 0;
         loadCurrentImage();
     }
 
     function loadCurrentImage() {
-        const imageName = imageNumbers[currentImageIndex];
+        const imageName = imageNames[currentImageIndex];
         noteImage.src = imageName;
         selectedNotes = [];
         noteButtons.forEach(button => button.classList.remove('selected'));
@@ -83,10 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkAnswer() {
-        const imageName = imageNumbers[currentImageIndex];
+        const imageName = imageNames[currentImageIndex];
         const correctNotes = noteMappings[imageName];
-
-        const isCorrect = selectedNotes.length === 4 &&
+        
+        const isCorrect = selectedNotes.length === 4 && 
                           selectedNotes.every((note, index) => note === correctNotes[index]);
 
         if (isCorrect) {
@@ -99,12 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function playMusic() {
         backgroundMusic.currentTime = 4;
         backgroundMusic.play();
-        musicToggleButton.style.backgroundImage = 'url("stop.png")'; 
+        musicToggleButton.style.backgroundImage = 'url("stop.png")';
     }
 
     function stopMusic() {
         backgroundMusic.pause();
-        musicToggleButton.style.backgroundImage = 'url("play.png")'; 
+        musicToggleButton.style.backgroundImage = 'url("play.png")';
     }
 
     // Event Listeners
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     checkButton.addEventListener('click', checkAnswer);
 
     nextButton.addEventListener('click', () => {
-        currentImageIndex = (currentImageIndex + 1) % imageNumbers.length;
+        currentImageIndex = (currentImageIndex + 1) % imageNames.length;
         loadCurrentImage();
     });
 
