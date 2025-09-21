@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const helpImageContainer = document.getElementById('helpImageContainer');
     const helpImage = document.getElementById('helpImage');
     const successSound = document.getElementById('successSound');
-    const failSound = document = document.getElementById('failSound');
+    const failSound = document.getElementById('failSound');
     const backgroundMusic = document.getElementById('backgroundMusic');
     const musicToggleButton = document.getElementById('musicToggle');
     const backgroundButtons = document.querySelectorAll('.bg-button');
